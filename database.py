@@ -83,7 +83,7 @@ class Database:
         self.cursor.execute(sql, (category_id,))
         self.connection.commit()
 
-    # Book operations
+   
     def add_book(self, title, author, published_year, category_id):
         sql = """INSERT INTO Books(Title, Author, PublishedYear, CategoryID) 
                 VALUES(%s, %s, %s, %s) RETURNING BookID"""
@@ -131,7 +131,7 @@ class Database:
         self.cursor.execute(sql, (book_id,))
         self.connection.commit()
 
-    # Member operations
+
     def add_member(self, name, email, membership_date):
         sql = """INSERT INTO Members(Name, Email, MembershipDate) 
                 VALUES(%s, %s, %s) RETURNING MemberID"""
@@ -155,7 +155,7 @@ class Database:
         self.cursor.execute(sql, (member_id,))
         self.connection.commit()
 
-    # Borrow operations
+
     def borrow_book(self, book_id, member_id):
         sql = """INSERT INTO BorrowRecords(BookID, MemberID, BorrowDate) 
                 VALUES(%s, %s, CURRENT_DATE)"""
